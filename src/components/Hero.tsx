@@ -1,10 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
-import { Calendar, MapPin, Clock, Users, Award, ArrowRight } from 'lucide-react';
+import { Calendar, MapPin, Clock, Users, Award, ArrowRight, Star, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import RegisterModal from './RegisterModal';
 import JudgeCard from './JudgeCard';
 import CountdownTimer from './CountdownTimer';
+import EventAgenda from './EventAgenda';
 
 const Hero = () => {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
@@ -51,50 +52,70 @@ const Hero = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-brand-primary via-brand-light to-brand-lighter relative overflow-hidden">
-      {/* Animated Background Elements */}
+      {/* Enhanced Animated Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-white/10 rounded-full animate-float"></div>
-        <div className="absolute top-40 right-32 w-24 h-24 bg-brand-accent/20 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
-        <div className="absolute bottom-32 left-32 w-40 h-40 bg-white/5 rounded-full animate-float" style={{animationDelay: '4s'}}></div>
-        <div className="absolute bottom-40 right-20 w-28 h-28 bg-brand-accent/15 rounded-full animate-float" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-10 left-10 w-40 h-40 bg-white/5 rounded-full animate-float blur-xl"></div>
+        <div className="absolute top-20 right-20 w-32 h-32 bg-brand-accent/10 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-20 left-20 w-56 h-56 bg-white/5 rounded-full animate-float blur-2xl" style={{animationDelay: '4s'}}></div>
+        <div className="absolute bottom-10 right-10 w-36 h-36 bg-brand-accent/8 rounded-full animate-float" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-brand-accent/20 rounded-full animate-float" style={{animationDelay: '3s'}}></div>
+        <div className="absolute top-1/3 right-1/3 w-20 h-20 bg-white/10 rounded-full animate-float" style={{animationDelay: '5s'}}></div>
       </div>
 
-      <div className="container mx-auto px-6 py-12 relative z-10">
-        {/* Header */}
-        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-          <div className="inline-block bg-brand-accent text-brand-primary px-6 py-2 rounded-full text-sm font-semibold mb-6 animate-pulse-glow">
+      {/* Gradient Overlays */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/30 via-transparent to-brand-accent/20"></div>
+
+      <div className="container mx-auto px-6 py-8 relative z-10">
+        {/* Enhanced Header */}
+        <div className={`text-center mb-12 transition-all duration-1500 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+          <div className="inline-flex items-center bg-gradient-to-r from-brand-accent to-yellow-400 text-brand-primary px-8 py-3 rounded-full text-sm font-bold mb-8 shadow-2xl animate-pulse-glow">
+            <Sparkles className="w-4 h-4 mr-2" />
             BIO + HEALTH INNOVATION
+            <Star className="w-4 h-4 ml-2" />
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            INNOVATION MEETS
-            <br />
-            <span className="text-brand-accent">IMPACT</span> AT THE
-            <br />
-            LEAD TANK
-            <br />
-            <span className="bg-gradient-to-r from-white to-brand-accent bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-8xl font-black text-white mb-8 leading-tight tracking-tight">
+            <span className="block text-6xl md:text-9xl bg-gradient-to-r from-white via-brand-accent to-white bg-clip-text text-transparent animate-gradient-x">
+              INNOVATION
+            </span>
+            <span className="block text-5xl md:text-8xl">MEETS</span>
+            <span className="block text-6xl md:text-9xl text-brand-accent drop-shadow-2xl">
+              IMPACT
+            </span>
+            <span className="block text-3xl md:text-6xl text-white/90 mt-4">
+              AT THE LEAD TANK
+            </span>
+            <span className="block text-4xl md:text-7xl bg-gradient-to-r from-brand-accent via-yellow-400 to-brand-accent bg-clip-text text-transparent font-extrabold">
               PITCH EVENT
             </span>
           </h1>
+          
+          <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light">
+            Where breakthrough bio-health innovations meet world-class investors and industry leaders
+          </p>
         </div>
 
-        {/* Event Details Card */}
-        <div className={`max-w-4xl mx-auto mb-16 transition-all duration-1000 delay-300 ${isVisible ? 'animate-scale-in' : 'opacity-0'}`}>
-          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-white/20">
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="flex items-center space-x-3">
-                <Calendar className="w-6 h-6 text-brand-primary" />
+        {/* Enhanced Event Details Card */}
+        <div className={`max-w-6xl mx-auto mb-16 transition-all duration-1000 delay-300 ${isVisible ? 'animate-scale-in' : 'opacity-0'}`}>
+          <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 hover:bg-white/15 transition-all duration-500">
+            <div className="grid md:grid-cols-3 gap-8 mb-8">
+              <div className="flex items-center space-x-4 bg-white/10 rounded-2xl p-4 hover:bg-white/20 transition-all">
+                <div className="bg-brand-accent rounded-full p-3">
+                  <Calendar className="w-6 h-6 text-brand-primary" />
+                </div>
                 <div>
-                  <p className="font-semibold text-brand-primary">Tuesday, June 17</p>
-                  <p className="text-gray-600">18:00 - 21:00 GMT-7</p>
+                  <p className="font-bold text-white text-lg">Tuesday, June 17</p>
+                  <p className="text-brand-accent font-semibold">18:00 - 21:00 GMT-7</p>
                 </div>
               </div>
-              <div className="flex items-center space-x-3">
-                <MapPin className="w-6 h-6 text-brand-primary" />
+              <div className="flex items-center space-x-4 bg-white/10 rounded-2xl p-4 hover:bg-white/20 transition-all">
+                <div className="bg-brand-accent rounded-full p-3">
+                  <MapPin className="w-6 h-6 text-brand-primary" />
+                </div>
                 <div>
-                  <p className="font-semibold text-brand-primary">Japan Innovation Campus</p>
-                  <p className="text-gray-600">Palo Alto, California</p>
+                  <p className="font-bold text-white text-lg">Japan Innovation Campus</p>
+                  <p className="text-brand-accent font-semibold">Palo Alto, California</p>
                 </div>
               </div>
               <div className="flex items-center justify-center">
@@ -105,75 +126,84 @@ const Hero = () => {
             <div className="text-center">
               <Button 
                 onClick={() => setIsRegisterOpen(true)}
-                className="bg-brand-primary hover:bg-brand-light text-white px-8 py-4 text-lg rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg group"
+                className="bg-gradient-to-r from-brand-accent via-yellow-400 to-brand-accent hover:from-yellow-400 hover:via-brand-accent hover:to-yellow-400 text-brand-primary px-12 py-6 text-xl font-bold rounded-full transition-all duration-500 transform hover:scale-110 hover:shadow-2xl group border-2 border-brand-accent/50"
               >
-                Register Now
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                SECURE YOUR SPOT
+                <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform" />
               </Button>
+              <p className="text-white/80 mt-4 text-sm">Limited seats available • Free registration</p>
             </div>
           </div>
         </div>
 
-        {/* Why Attend Section */}
+        {/* Event Agenda Section */}
+        <EventAgenda />
+
+        {/* Enhanced Why Attend Section */}
         <div className={`mb-16 transition-all duration-1000 delay-500 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-          <h2 className="text-4xl font-bold text-white text-center mb-12">Why Attend?</h2>
+          <h2 className="text-5xl font-black text-white text-center mb-16 bg-gradient-to-r from-white to-brand-accent bg-clip-text text-transparent">
+            Why Attend This Exclusive Event?
+          </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {eventHighlights.map((highlight, index) => (
               <div 
                 key={index}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition-all duration-300 transform hover:scale-105 hover:shadow-xl border border-white/20"
+                className="bg-white/5 backdrop-blur-xl rounded-2xl p-8 text-center hover:bg-white/10 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl border border-white/10 group hover:border-brand-accent/50"
                 style={{animationDelay: `${index * 200}ms`}}
               >
-                <div className="w-16 h-16 bg-brand-accent rounded-full flex items-center justify-center mx-auto mb-4">
-                  <highlight.icon className="w-8 h-8 text-brand-primary" />
+                <div className="w-20 h-20 bg-gradient-to-br from-brand-accent to-yellow-400 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-xl">
+                  <highlight.icon className="w-10 h-10 text-brand-primary" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3">{highlight.title}</h3>
-                <p className="text-white/80">{highlight.description}</p>
+                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-brand-accent transition-colors">{highlight.title}</h3>
+                <p className="text-white/90 text-lg leading-relaxed">{highlight.description}</p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Distinguished Judges Section */}
-        <div className={`transition-all duration-1000 delay-700 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-          <h2 className="text-4xl font-bold text-white text-center mb-12">
+        {/* Enhanced Distinguished Judges Section */}
+        <div className={`mb-16 transition-all duration-1000 delay-700 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+          <h2 className="text-5xl font-black text-white text-center mb-4 bg-gradient-to-r from-white to-brand-accent bg-clip-text text-transparent">
             DISTINGUISHED PANEL OF JUDGES
           </h2>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <p className="text-xl text-white/80 text-center mb-12 max-w-3xl mx-auto">
+            Meet the industry leaders who will evaluate groundbreaking innovations
+          </p>
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {judges.map((judge, index) => (
               <JudgeCard key={index} judge={judge} delay={index * 200} />
             ))}
           </div>
         </div>
 
-        {/* Hosted By Section */}
-        <div className={`mt-16 text-center transition-all duration-1000 delay-900 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-md mx-auto border border-white/20">
-            <h3 className="text-xl font-semibold text-white mb-4">Hosted By</h3>
-            <div className="space-y-2">
-              <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-brand-accent rounded-full flex items-center justify-center">
-                  <span className="text-brand-primary font-semibold text-sm">MK</span>
+        {/* Enhanced Hosted By Section */}
+        <div className={`text-center transition-all duration-1000 delay-900 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+          <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-8 max-w-lg mx-auto border border-white/10 hover:bg-white/10 transition-all duration-500">
+            <h3 className="text-2xl font-bold text-white mb-6 text-brand-accent">Hosted By</h3>
+            <div className="space-y-4">
+              <div className="flex items-center space-x-4 bg-white/10 rounded-xl p-3">
+                <div className="w-12 h-12 bg-gradient-to-br from-brand-accent to-yellow-400 rounded-full flex items-center justify-center">
+                  <span className="text-brand-primary font-bold text-lg">MK</span>
                 </div>
-                <span className="text-white">Margarette Kesselman</span>
+                <span className="text-white font-semibold text-lg">Margarette Kesselman</span>
               </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
-                  <span className="text-white font-semibold text-sm">AA</span>
+              <div className="flex items-center space-x-4 bg-white/10 rounded-xl p-3">
+                <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center">
+                  <span className="text-white font-bold text-lg">AA</span>
                 </div>
-                <span className="text-white">Armine Abramyan</span>
+                <span className="text-white font-semibold text-lg">Armine Abramyan</span>
               </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                  <span className="text-white font-semibold text-sm">MC</span>
+              <div className="flex items-center space-x-4 bg-white/10 rounded-xl p-3">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-full flex items-center justify-center">
+                  <span className="text-white font-bold text-lg">MC</span>
                 </div>
-                <span className="text-white">Manmeet Chhabra</span>
+                <span className="text-white font-semibold text-lg">Manmeet Chhabra</span>
               </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center">
-                  <span className="text-white font-semibold text-sm">EA</span>
+              <div className="flex items-center space-x-4 bg-white/10 rounded-xl p-3">
+                <div className="w-12 h-12 bg-gradient-to-br from-orange-600 to-yellow-500 rounded-full flex items-center justify-center">
+                  <span className="text-white font-bold text-lg">EA</span>
                 </div>
-                <span className="text-white">E Alexei</span>
+                <span className="text-white font-semibold text-lg">E Alexei</span>
               </div>
             </div>
           </div>
